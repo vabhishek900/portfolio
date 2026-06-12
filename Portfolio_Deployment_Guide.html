@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Deployment Guide — Abhishek V Desai</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; color: #222; margin: 1in; line-height: 1.5; }
+  h1 { font-size: 20pt; color: #1a3a6b; border-bottom: 2px solid #1a3a6b; padding-bottom: 6px; margin-top: 0; }
+  h2 { font-size: 14pt; color: #1a3a6b; border-bottom: 1px solid #ccd6f0; padding-bottom: 4px; margin-top: 28px; }
+  h3 { font-size: 12pt; color: #2e5aa8; margin-top: 20px; margin-bottom: 6px; }
+  h4 { font-size: 11pt; color: #333; margin-top: 14px; margin-bottom: 4px; }
+  p { margin: 6px 0 10px 0; }
+  ul, ol { margin: 6px 0 10px 20px; }
+  li { margin-bottom: 5px; }
+  code, pre { font-family: Consolas, "Courier New", monospace; font-size: 10pt; background: #f4f6fb; border: 1px solid #dde3f0; border-radius: 3px; }
+  code { padding: 1px 5px; }
+  pre { padding: 10px 14px; margin: 8px 0; white-space: pre-wrap; word-break: break-all; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 16px 0; font-size: 10.5pt; }
+  th { background: #1a3a6b; color: #fff; padding: 6px 10px; text-align: left; }
+  td { border: 1px solid #ccd6f0; padding: 5px 10px; }
+  tr:nth-child(even) td { background: #f4f6fb; }
+  .phase-box { background: #e8eef8; border-left: 4px solid #1a3a6b; padding: 10px 16px; margin: 18px 0 8px 0; border-radius: 0 4px 4px 0; }
+  .phase-box p { margin: 0; font-weight: bold; font-size: 12pt; color: #1a3a6b; }
+  .tip { background: #fffbe6; border-left: 4px solid #f0a500; padding: 8px 14px; margin: 10px 0; border-radius: 0 4px 4px 0; font-size: 10.5pt; }
+  .warning { background: #fff0f0; border-left: 4px solid #cc0000; padding: 8px 14px; margin: 10px 0; border-radius: 0 4px 4px 0; font-size: 10.5pt; }
+  .success { background: #f0fff4; border-left: 4px solid #2e8b57; padding: 8px 14px; margin: 10px 0; border-radius: 0 4px 4px 0; font-size: 10.5pt; }
+  .step-num { display: inline-block; background: #1a3a6b; color: #fff; border-radius: 50%; width: 22px; height: 22px; text-align: center; font-weight: bold; font-size: 11pt; line-height: 22px; margin-right: 8px; }
+  .toc-item { margin: 4px 0; }
+  .toc-item a { color: #1a3a6b; text-decoration: none; }
+  .footer { margin-top: 40px; border-top: 1px solid #ccd6f0; padding-top: 10px; font-size: 9.5pt; color: #888; }
+  @media print { body { margin: 0.75in; } }
+</style>
+</head>
+<body>
+
+<h1>Portfolio Deployment Guide</h1>
+<p><strong>Abhishek V Desai</strong> &nbsp;|&nbsp; ASP.NET Core 10 + SQL Server + AngularJS Portfolio<br>
+<strong>Goal:</strong> Push code to GitHub, host live on Azure — 100% free, no credit card charges.</p>
+
+<div class="success">
+  <strong>End result:</strong> Your portfolio will be live at <code>https://abhishek-portfolio.azurewebsites.net</code> and Swagger at <code>https://abhishek-portfolio.azurewebsites.net/swagger</code>
+</div>
+
+<hr>
+
+<h2>Table of Contents</h2>
+<div class="toc-item">Phase 1 &mdash; Prepare your code locally (Steps 1–4)</div>
+<div class="toc-item">Phase 2 &mdash; Push to GitHub (Steps 5–6)</div>
+<div class="toc-item">Phase 3 &mdash; Create Azure SQL Database for free (Steps 7–10)</div>
+<div class="toc-item">Phase 4 &mdash; Deploy API to Azure App Service free (Steps 11–14)</div>
+<div class="toc-item">Phase 5 &mdash; Verify everything is live (Steps 15–16)</div>
+<div class="toc-item">Phase 6 &mdash; LinkedIn and sharing with recruiters (Steps 17–18)</div>
+
+<hr>
+
+<!-- PHASE 1 -->
+<div class="phase-box"><p>PHASE 1 &mdash; Prepare Your Code Locally &nbsp;&nbsp;(~10 minutes)</p></div>
+
+<h3><span class="step-num">1</span>Open PowerShell in the project folder</h3>
+<p>Press <strong>Win + X</strong> then click <strong>Terminal</strong> or <strong>Windows PowerShell</strong>. Then type:</p>
+<pre>cd "c:\Users\desai\OneDrive\Desktop\1_Resume_InterviewPrep\AbhishekPortfolio"</pre>
+<p>Keep this PowerShell window open — you will use it for all commands below.</p>
+
+<h3><span class="step-num">2</span>Confirm these files already exist in the project</h3>
+<p>The following files were already created and are ready:</p>
+<ul>
+  <li><code>.gitignore</code> — tells Git to ignore build folders and secrets</li>
+  <li><code>README.md</code> — description page shown on GitHub</li>
+  <li><code>api\appsettings.json</code> — connection string and admin password are already set to placeholders (real values go into Azure later)</li>
+</ul>
+<div class="tip"><strong>Tip:</strong> Open <code>api\appsettings.json</code> and confirm the connection string says <code>CHANGE_IN_AZURE_APP_SETTINGS</code> — not a real password. This is intentional.</div>
+
+<h3><span class="step-num">3</span>Do a final check — make sure no sensitive data is going to GitHub</h3>
+<p>In your PowerShell window run:</p>
+<pre>Get-Content "api\appsettings.json"</pre>
+<p>You should see <code>CHANGE_IN_AZURE_APP_SETTINGS</code> for both the connection string and AdminPassword. If you see a real password, change it to that placeholder before continuing.</p>
+
+<h3><span class="step-num">4</span>Build and confirm the API compiles cleanly</h3>
+<pre>cd api
+dotnet build
+cd ..</pre>
+<p>You should see <strong>Build succeeded</strong> with 0 errors. If there are errors, fix them before continuing.</p>
+
+<!-- PHASE 2 -->
+<div class="phase-box"><p>PHASE 2 &mdash; Push to GitHub &nbsp;&nbsp;(~10 minutes)</p></div>
+
+<h3><span class="step-num">5</span>Create a free GitHub account (skip if you have one)</h3>
+<ol>
+  <li>Go to <strong>github.com</strong></li>
+  <li>Click <strong>Sign up</strong></li>
+  <li>Use any email address, choose a username (e.g. <code>abhishekdesai-dev</code>)</li>
+  <li>Verify your email</li>
+</ol>
+
+<h3><span class="step-num">6</span>Initialize Git and push your code</h3>
+<p><strong>Part A — Initialize Git locally</strong> (run each line separately in PowerShell):</p>
+<pre>cd "c:\Users\desai\OneDrive\Desktop\1_Resume_InterviewPrep\AbhishekPortfolio"
+git init
+git add .
+git status</pre>
+<p>After <code>git status</code>, review the list of files. You should NOT see any <code>bin\</code>, <code>obj\</code>, or password files. If anything looks wrong, stop and ask before continuing.</p>
+<pre>git commit -m "Initial commit: ASP.NET Core 10 portfolio API + AngularJS frontend + SQL schema"</pre>
+
+<p><strong>Part B — Create the GitHub repository online:</strong></p>
+<ol>
+  <li>Go to <strong>github.com</strong> → click the <strong>+</strong> icon top-right → <strong>New repository</strong></li>
+  <li>Repository name: <code>abhishek-portfolio</code></li>
+  <li>Visibility: <strong>Public</strong> (recruiters must be able to see it — private repos are invisible)</li>
+  <li>Do <strong>NOT</strong> check "Add a README file" — you already have one</li>
+  <li>Click <strong>Create repository</strong></li>
+</ol>
+
+<p><strong>Part C — Connect and push</strong> (copy your GitHub username into the command below):</p>
+<pre>git remote add origin https://github.com/YOUR_GITHUB_USERNAME/abhishek-portfolio.git
+git branch -M main
+git push -u origin main</pre>
+<p>GitHub will ask for your username and password. For password, use a <strong>Personal Access Token</strong> (not your GitHub login password). To get one: GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate new token → check <code>repo</code> scope → copy the token → paste it as the password.</p>
+
+<div class="success"><strong>Done!</strong> Open <code>https://github.com/YOUR_USERNAME/abhishek-portfolio</code> — you should see all your files and the README.</div>
+
+<!-- PHASE 3 -->
+<div class="phase-box"><p>PHASE 3 &mdash; Create Azure SQL Database (Free) &nbsp;&nbsp;(~20 minutes)</p></div>
+
+<h3><span class="step-num">7</span>Create a free Azure account</h3>
+<ol>
+  <li>Go to <strong>portal.azure.com</strong></li>
+  <li>Click <strong>Start free</strong> or sign in if you already have an account</li>
+  <li>Free account gives you $200 credit for 30 days + certain services free forever</li>
+  <li>Azure SQL Database has a <strong>free offer</strong> — 100,000 vCore seconds/month, no charge</li>
+</ol>
+<div class="tip"><strong>No credit card charges:</strong> The free tier App Service (F1) and free-offer Azure SQL Database are $0/month. You will be asked to enter a credit card when creating the account but you will NOT be charged as long as you stay within free tier limits.</div>
+
+<h3><span class="step-num">8</span>Create a SQL Server (the container for your database)</h3>
+<ol>
+  <li>In the Azure Portal search bar at the top, type: <strong>SQL servers</strong> → click it</li>
+  <li>Click <strong>+ Create</strong></li>
+  <li>Fill in these fields:
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Subscription</td><td>Your subscription (e.g. "Free Trial" or "Pay-As-You-Go")</td></tr>
+      <tr><td>Resource group</td><td>Click <strong>Create new</strong> → type <code>portfolio-rg</code> → OK</td></tr>
+      <tr><td>Server name</td><td><code>abhishek-portfolio-sql</code> (must be globally unique — add numbers if taken, e.g. <code>abhishek-portfolio-sql-2025</code>)</td></tr>
+      <tr><td>Region</td><td>East US (or nearest to you)</td></tr>
+      <tr><td>Authentication method</td><td>Use SQL authentication</td></tr>
+      <tr><td>Server admin login</td><td><code>portfolioadmin</code></td></tr>
+      <tr><td>Password</td><td>Pick a strong password — write it down! You will need it in Step 13.</td></tr>
+    </table>
+  </li>
+  <li>Click <strong>Review + create</strong> → <strong>Create</strong></li>
+  <li>Wait ~1-2 minutes</li>
+</ol>
+
+<h3><span class="step-num">9</span>Create the Database with the FREE offer</h3>
+<ol>
+  <li>In the Azure Portal search bar, type: <strong>SQL databases</strong> → click it</li>
+  <li>Click <strong>+ Create</strong></li>
+  <li>Fill in these fields:
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Subscription</td><td>Your subscription</td></tr>
+      <tr><td>Resource group</td><td><code>portfolio-rg</code></td></tr>
+      <tr><td>Database name</td><td><code>AbhishekPortfolioDB</code></td></tr>
+      <tr><td>Server</td><td>Select <code>abhishek-portfolio-sql</code> (the one you just created)</td></tr>
+      <tr><td>Want to use SQL elastic pool?</td><td>No</td></tr>
+      <tr><td>Workload environment</td><td>Development</td></tr>
+    </table>
+  </li>
+  <li>Under <strong>Compute + storage</strong>, click <strong>Configure database</strong>
+    <ul>
+      <li>Look for the banner: <strong>"Apply the Azure SQL Database free offer"</strong> — click it</li>
+      <li>If you see it, select it. This gives you free database forever (100K vCore-seconds/month)</li>
+      <li>If you do NOT see the free offer: choose <strong>Serverless</strong> tier, set max vCores to 1 — this costs nearly $0 for low traffic</li>
+    </ul>
+  </li>
+  <li>Click <strong>Review + create</strong> → <strong>Create</strong></li>
+  <li>Wait ~3-5 minutes for deployment</li>
+</ol>
+
+<h3><span class="step-num">10</span>Allow your PC and Azure services to connect to the database</h3>
+<ol>
+  <li>Go to your SQL Server resource: search <strong>SQL servers</strong> → click <code>abhishek-portfolio-sql</code></li>
+  <li>In the left menu, click <strong>Networking</strong> (under Security)</li>
+  <li>Under <strong>Firewall rules</strong>:
+    <ul>
+      <li>Click <strong>"Add your client IPv4 address"</strong> — this lets your PC connect</li>
+      <li>Toggle <strong>"Allow Azure services and resources to access this server"</strong> to <strong>Yes</strong> — this lets your App Service connect</li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong></li>
+</ol>
+
+<p><strong>Now run the SQL script to create all tables and seed data:</strong></p>
+<ol>
+  <li>In Azure Portal → go to your SQL Database (<strong>SQL databases</strong> → <code>AbhishekPortfolioDB</code>)</li>
+  <li>In the left menu, click <strong>Query editor (preview)</strong></li>
+  <li>Login with: <code>portfolioadmin</code> and the password you wrote down in Step 8</li>
+  <li>Open the file <code>sql\AbhishekPortfolio_DB_Setup.sql</code> on your computer in Notepad</li>
+  <li>Select all text (Ctrl+A), copy (Ctrl+C)</li>
+  <li>Paste it into the Query editor (Ctrl+V)</li>
+  <li>Click <strong>Run</strong></li>
+  <li>You should see: <em>"Query succeeded"</em> or a list of table creation messages</li>
+</ol>
+
+<div class="success"><strong>Done!</strong> Your database is live in Azure with all tables and data.</div>
+
+<!-- PHASE 4 -->
+<div class="phase-box"><p>PHASE 4 &mdash; Deploy API to Azure App Service (Free F1 Tier) &nbsp;&nbsp;(~20 minutes)</p></div>
+
+<h3><span class="step-num">11</span>Create the App Service (web hosting for your API)</h3>
+<ol>
+  <li>In Azure Portal search bar, type: <strong>App Services</strong> → click it</li>
+  <li>Click <strong>+ Create</strong> → <strong>Web App</strong></li>
+  <li>Fill in these fields:
+    <table>
+      <tr><th>Field</th><th>Value</th></tr>
+      <tr><td>Subscription</td><td>Your subscription</td></tr>
+      <tr><td>Resource group</td><td><code>portfolio-rg</code></td></tr>
+      <tr><td>Name</td><td><code>abhishek-portfolio</code> (this becomes your URL — must be globally unique)</td></tr>
+      <tr><td>Publish</td><td>Code</td></tr>
+      <tr><td>Runtime stack</td><td>.NET 10 (LTS)</td></tr>
+      <tr><td>Operating System</td><td>Windows</td></tr>
+      <tr><td>Region</td><td>East US</td></tr>
+    </table>
+  </li>
+  <li>Under <strong>Pricing plans</strong> → click <strong>Create new</strong>
+    <ul>
+      <li>Give it any name</li>
+      <li>Click <strong>Change size</strong> → click <strong>Dev / Test</strong> tab → select <strong>F1 (Free)</strong> → click <strong>Apply</strong></li>
+    </ul>
+  </li>
+  <li>Click <strong>Review + create</strong> → <strong>Create</strong></li>
+  <li>Wait ~2-3 minutes</li>
+</ol>
+
+<h3><span class="step-num">12</span>Get your Azure SQL connection string</h3>
+<ol>
+  <li>Go to Azure Portal → <strong>SQL databases</strong> → <code>AbhishekPortfolioDB</code></li>
+  <li>In left menu, click <strong>Connection strings</strong></li>
+  <li>Click the <strong>ADO.NET</strong> tab</li>
+  <li>Copy the connection string — it looks like:<br>
+    <code>Server=tcp:abhishek-portfolio-sql.database.windows.net,1433;Initial Catalog=AbhishekPortfolioDB;Persist Security Info=False;User ID=portfolioadmin;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;</code></li>
+  <li>Replace <code>{your_password}</code> with the actual password you set in Step 8</li>
+  <li>Keep this copied — you will use it in the next step</li>
+</ol>
+
+<h3><span class="step-num">13</span>Set environment variables in Azure (your real secrets go here — NOT in code)</h3>
+<ol>
+  <li>Go to Azure Portal → <strong>App Services</strong> → <code>abhishek-portfolio</code></li>
+  <li>In left menu, click <strong>Environment variables</strong> (under Settings)</li>
+  <li>Click <strong>+ Add</strong> for each row below:</li>
+</ol>
+<table>
+  <tr><th>Name</th><th>Value</th></tr>
+  <tr><td><code>ConnectionStrings__DefaultConnection</code></td><td>The full connection string from Step 12 (with real password)</td></tr>
+  <tr><td><code>AdminPassword</code></td><td>A strong password you will use to log into /admin.html (example: <code>MyPortfolio2025!</code>)</td></tr>
+  <tr><td><code>ASPNETCORE_ENVIRONMENT</code></td><td><code>Production</code></td></tr>
+</table>
+<div class="tip"><strong>Note the double underscore</strong> in <code>ConnectionStrings__DefaultConnection</code> — that is how .NET reads nested config from environment variables. One underscore will not work.</div>
+<ol start="4">
+  <li>Click <strong>Apply</strong> at the bottom</li>
+  <li>Click <strong>Confirm</strong> in the popup</li>
+</ol>
+
+<h3><span class="step-num">14</span>Connect GitHub to Azure for automatic deployment</h3>
+<ol>
+  <li>In your App Service, left menu → click <strong>Deployment Center</strong> (under Deployment)</li>
+  <li>Under <strong>Source</strong>, select <strong>GitHub</strong></li>
+  <li>Click <strong>Authorize</strong> → a GitHub login popup appears → sign in → click <strong>Authorize AzureAppService</strong></li>
+  <li>Back in Azure:
+    <ul>
+      <li><strong>Organization:</strong> your GitHub username</li>
+      <li><strong>Repository:</strong> <code>abhishek-portfolio</code></li>
+      <li><strong>Branch:</strong> <code>main</code></li>
+    </ul>
+  </li>
+  <li>Click <strong>Save</strong></li>
+</ol>
+<p>Azure will now:</p>
+<ul>
+  <li>Add a GitHub Actions workflow file to your repo automatically</li>
+  <li>Trigger the first deployment (takes 3–5 minutes)</li>
+  <li>Every time you do <code>git push</code> in the future, it auto-deploys</li>
+</ul>
+
+<div class="warning"><strong>Important — Tell Azure where your project file is:</strong> Your <code>.csproj</code> is inside the <code>api/</code> subfolder, not the root. After Azure creates the workflow file, you may need to edit it. Go to your GitHub repo → <code>.github/workflows/</code> → open the <code>.yml</code> file → find the line with <code>dotnet publish</code> and make sure it points to <code>api/AbhishekPortfolio.Api.csproj</code>. If deployments fail, this is the first thing to check.</div>
+
+<!-- PHASE 5 -->
+<div class="phase-box"><p>PHASE 5 &mdash; Verify Everything is Live &nbsp;&nbsp;(~5 minutes)</p></div>
+
+<h3><span class="step-num">15</span>Watch the deployment</h3>
+<ol>
+  <li>Go to your GitHub repo → click the <strong>Actions</strong> tab at the top</li>
+  <li>You will see a workflow running (orange spinning circle)</li>
+  <li>Click on it to see live build logs</li>
+  <li>When it turns green (✓), the deployment is done</li>
+  <li>If it turns red (✗), click on it and read the error — most common issue is the project path (see warning in Step 14)</li>
+</ol>
+
+<h3><span class="step-num">16</span>Open your live URLs</h3>
+<table>
+  <tr><th>What</th><th>URL</th><th>Expected result</th></tr>
+  <tr><td>Portfolio Homepage</td><td><code>https://abhishek-portfolio.azurewebsites.net</code></td><td>Your portfolio site loads with all data</td></tr>
+  <tr><td>Swagger API Docs</td><td><code>https://abhishek-portfolio.azurewebsites.net/swagger</code></td><td>Swagger UI shows all 15 endpoints</td></tr>
+  <tr><td>Admin Dashboard</td><td><code>https://abhishek-portfolio.azurewebsites.net/admin.html</code></td><td>Login screen appears — use the AdminPassword you set in Step 13</td></tr>
+</table>
+
+<div class="tip"><strong>If the site loads but data is missing:</strong> The API connected but the SQL tables may be empty. Make sure the SQL script ran successfully (Step 10). Also check App Service → <strong>Log stream</strong> (under Monitoring) for any database connection errors.</div>
+
+<!-- PHASE 6 -->
+<div class="phase-box"><p>PHASE 6 &mdash; LinkedIn &amp; Sharing with Recruiters &nbsp;&nbsp;(~10 minutes)</p></div>
+
+<h3><span class="step-num">17</span>Add to LinkedIn Featured section</h3>
+<ol>
+  <li>Go to your LinkedIn profile</li>
+  <li>Click <strong>Add profile section</strong> → <strong>Recommended</strong> → <strong>Featured</strong></li>
+  <li>Click <strong>+</strong> → <strong>Add a link</strong></li>
+  <li>Add these two links:
+    <table>
+      <tr><th>Label</th><th>URL</th></tr>
+      <tr><td>Live Portfolio</td><td><code>https://abhishek-portfolio.azurewebsites.net</code></td></tr>
+      <tr><td>GitHub Source Code</td><td><code>https://github.com/YOUR_USERNAME/abhishek-portfolio</code></td></tr>
+    </table>
+  </li>
+  <li>The Featured section appears near the top of your profile — very visible to recruiters</li>
+</ol>
+
+<h3><span class="step-num">18</span>What to send recruiters</h3>
+<p>Copy-paste this paragraph into emails or LinkedIn messages:</p>
+<pre>Here is my portfolio: https://abhishek-portfolio.azurewebsites.net
+
+It is a full-stack application I built end-to-end:
+- Backend: ASP.NET Core 10 Minimal API (C#), 15 REST endpoints, Swagger UI at /swagger
+- Database: SQL Server / Azure SQL, 12 tables covering all portfolio sections
+- Frontend: AngularJS SPA with Chart.js skill visualizations
+- Admin dashboard at /admin.html for lead management (contact form submissions)
+- Source code: https://github.com/YOUR_USERNAME/abhishek-portfolio</pre>
+
+<hr>
+
+<h2>Summary — What Each Service Does (All Free)</h2>
+<table>
+  <tr><th>Service</th><th>What it does</th><th>Cost</th></tr>
+  <tr><td>GitHub</td><td>Stores your code publicly. Recruiters can browse it.</td><td>Free forever</td></tr>
+  <tr><td>Azure App Service F1</td><td>Runs your .NET API. Serves the frontend HTML files.</td><td>Free forever (F1 tier)</td></tr>
+  <tr><td>Azure SQL Database</td><td>Hosts your 12-table database in the cloud.</td><td>Free (free offer tier)</td></tr>
+  <tr><td>GitHub Actions</td><td>Auto-deploys your code to Azure on every git push.</td><td>Free (2,000 min/month)</td></tr>
+</table>
+
+<h2>Full Architecture Diagram</h2>
+<pre>
+Recruiter's Browser
+       |
+       | opens URL
+       v
+https://abhishek-portfolio.azurewebsites.net
+       |
+       | Azure App Service F1 (Windows, .NET 10)
+       | runs your api/Program.cs
+       | serves Frontend/ static files
+       |
+       +---> GET /api/portfolio/experience
+       |            |
+       |            v
+       |     Azure SQL Database
+       |     AbhishekPortfolioDB
+       |     (WorkExperience, Skills, Projects, etc.)
+       |
+       +---> GET /swagger
+       |     Swagger UI (all 15 endpoints documented)
+       |
+       +---> GET /admin.html
+             Admin dashboard (leads + testimonials)
+
+
+Your PC                  GitHub                    Azure
+──────                   ──────                    ─────
+git push  ──────────>  main branch  ──────────>  GitHub Actions
+(changes)               (code repo)               builds + deploys
+                                                  to App Service
+</pre>
+
+<h2>Troubleshooting — Common Issues</h2>
+<table>
+  <tr><th>Problem</th><th>Cause</th><th>Fix</th></tr>
+  <tr><td>GitHub Actions build fails</td><td>Wrong project path in the .yml workflow file</td><td>Edit <code>.github/workflows/*.yml</code> — find <code>dotnet publish</code> line and add <code>api/AbhishekPortfolio.Api.csproj</code></td></tr>
+  <tr><td>Site loads but shows empty data</td><td>Database connection string wrong or firewall blocking</td><td>Check App Service → Environment variables → confirm connection string. Check SQL Server → Networking → Azure services allowed.</td></tr>
+  <tr><td>Admin login not working</td><td>AdminPassword env var not set</td><td>App Service → Environment variables → confirm <code>AdminPassword</code> is set</td></tr>
+  <tr><td>App Service shows default Azure page</td><td>Deployment not finished yet or failed</td><td>GitHub → Actions tab — check if build succeeded. Wait 5 minutes after green checkmark.</td></tr>
+  <tr><td>git push asks for password</td><td>GitHub requires Personal Access Token, not account password</td><td>GitHub → Settings → Developer settings → Personal access tokens → create token with repo scope</td></tr>
+</table>
+
+<div class="footer">
+  Abhishek V Desai Portfolio Deployment Guide &nbsp;|&nbsp; Generated June 2025<br>
+  Project: AbhishekPortfolio &nbsp;|&nbsp; Stack: ASP.NET Core 10, SQL Server, AngularJS, Azure
+</div>
+
+</body>
+</html>

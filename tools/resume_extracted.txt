@@ -1,0 +1,199 @@
+Abhishek Desai  
+.NET & SQL Developer  | 9+ Years Enterprise Experience | Finance · Real Estate · Healthcare  
+avdesai900@gmail.com  • +1 (540) -724-1408  • linkedin.com/in/abhishek -v-desai -273594311  
+PROFESSIONAL SUMMARY  
+• Results -driven Full-Stack .NET & SQL Developer  with 9+ years delivering enterprise applications across finance, 
+real estate, and healthcare — clean architecture, solid data models, close stakeholder collaboration.  
+• Deep ASP.NET Core, MVC, Web API, Entity Framework, ADO.NET, WCF  and WPF  expertise — consistent 
+delivery of production -grade C# and VB.NET  codebases across finance, healthcare, and real estate.  
+• Advanced SQL Server (2000 –2019)  and Oracle (9i –11g) database skills — schema design, T-SQL/PL/SQL  
+development, SSIS/SSRS  pipelines, and measurable performance tuning on live systems.  
+• Builds high -performance SPAs using Angular (8 –14) and ReactJS  with TypeScript  and ngrx  — Micro Frontend 
+architecture enables independent team deployment without bottlenecks.  
+• SQL Server  and Oracle  performance specialist — reads execution plans, uses SQL Profiler  and Query Store , 
+delivered up to 60% of the query  performance improvements  on live production systems.  
+• Proven data engineering at Citigroup — PySpark ETL pipelines  on millions of records, automated validation 
+workflows ( +25% compliance accuracy ), and Power BI  dashboards with custom DAX  measures.  
+• Hands -on Python  and data engineering — PySpark  distributed processing, ETL pipeline design , validation 
+scripting, and hybrid SQL -PySpark workflows for compliance -critical enterprise environments.  
+• Experienced in SQL Server  to managed cloud instance migrations — schema validation, integrity checks, failover 
+configuration, and cutover planning with zero data loss  and minimal downtime.  
+• Skilled in SSIS ETL  workflows, SQL Server Agent  and Autosys  scheduling, and Jenkins CI/CD  pipelines — full 
+DevOps ownership from code commit to production release.  
+• Experienced with Docker -based containerization and cloud -ready deployment practices — consistent environment 
+parity across dev, staging, and production reduces release risk.  
+• Maintains clean Git feature -branch workflows, translates stakeholder requirements into sprint -ready stories, and 
+keeps Agile/Scrum  delivery velocity consistent across multi -year enterprise engagements.  
+• Azure -certified  (DP-300) - production delivery migrated SQL Server workloads to Azure SQL Managed Instance , 
+configure geo -replication, PITR  backup, Azure Monitor  query alert zero data loss, full HA maintained to cutover.  
+• Azure Fundamentals certified ( AZ-900) and applied in production - Azure Blob Storage  ETL landing zones, Azure  
+AD RBAC  access control, Azure DevOps Pipelines  CI/CD  - delivered across finance & real estate environments.  
+CERTIFICATIONS  
+• AZ-900: Microsoft Certified — Azure Fundamentals  
+• DP-300: Microsoft Certified — Azure Database Administrator Associate  
+• MySQL Bootcamp — Udemy  
+TECHNICAL SKILLS  
+Languages  C#, .NET, T -SQL, PL/SQL, Python, TypeScript, JavaScript, VB.NET, C, C++  
+.NET Stack  ASP.NET Core, ASP.NET MVC, Web API, Entity Framework (4.1 –6.0), ADO.NET, LINQ, 
+Microservices, WCF, WPF, MVVM  
+Databases & BI  SQL Server (2000 –2019), Oracle (9i –11g), MySQL, Azure SQL Database, Azure SQL Managed 
+Instance, Power BI (DAX, Power Query), SSIS, SSRS, SSAS, SSMS  
+Data Engineering  Python, PySpark, SSIS, Azure Data Factory, Autosys, SQL Server Agent, ETL Pipeline Design, 
+Batch Processing, Data Validation  
+Web & UI  Angular (8 –14), ReactJS, AngularJS, HTML5, CSS3, TypeScript, jQuery, Bootstrap, AJAX, JSON, 
+XML, Kendo UI  
+DevOps & Tools  Git, Jenkins, Docker, Azure DevOps, Azure Blob Storage, Azure AD, Azure Monitor, Visual Studio 
+(2010 –2019), VS Code, JIRA, Figma, SVN, TFS, Azure Repos, Excel  
+
+Testing  MSTest, NUnit, xUnit, JUnit, Jasmine, Mocha, Karma  
+Methodology  Agile/Scrum, Requirements Analysis, Stakeholder Management, Microservices, Micro Frontend, 
+CI/CD  
+EDUCATION  
+Master of Science in Information Systems — Marshall University      2017 – 2018  
+Bachelor of Computer Engineering — Gujarat Technological University  2011 – 2015  
+PROFESSIONAL EXPERIENCE  
+Client: Prompt Realty & Mortgage  June 2024 – Present  
+Role: .NET / SQL Developer  
+• Diagnosed slow API responses via SQL Profiler  and Query Store  — read execution plans, rewrote queries and 
+stored procedures. Result: 60% faster API response, 40% better DB read performance . 
+• Architected Micro Frontend SPAs using Angular 10 –14, TypeScript, and ngrx  — reusable component library cut 
+front-end delivery effort by 25%. 
+• Built the complete SQL Server  data layer — normalized schemas, indexed views, stored procedures, scalar 
+functions, CHECK constraints, foreign keys, DML triggers , and TRY...CATCH error handling.  
+• Designed T-SQL objects including CTEs, window functions, and dynamic SQL — supporting real -time property 
+search and lead queries under high concurrency with consistent sub -second response times.  
+• Built automated SSIS  pipelines consolidating property transaction and lead data into a centralized SQL Server data 
+mart  — enabling clean, reconciled Power BI  reporting without manual data preparation.  
+• Built Power BI  dashboards with custom DAX  measures and Power Query  on SQL Server — live visibility into 
+listings, lead conversion, and agent performance with automated refresh schedules.  
+• Designed OAuth2 -secured REST APIs with ASP.NET Core, Web API , and Entity Framework  — agent lead 
+submissions and property searches flow through a properly secured, structured pipeline.  
+• Created reusable Angular TypeScript  component libraries (listing cards, search filters, lead capture) — reduced 
+front-end delivery effort by 25% per release cycle.  
+• Configured RBAC  policies, firewall rules, backup schedules, and Jenkins CI/CD  — cut deployment cycle time by 
+40% and eliminated unpredictable manual release steps.  
+• Maintained feature -branch Git workflows with mandatory PR reviews — no unreviewed code reached main; any 
+production issue traceable to source within minutes.  
+• Migrated SQL Server data mart to Azure SQL Database  (DP-300) configured PITR  backup retention, automated 
+schedules, Azure Monitor  performance alerts - zero data loss on cutover, sub -second query response preserved 
+post-migration.  
+• Integrated Azure DevOps Pipelines  with Jenkins CI/CD  (AZ-900) staged SSIS loads via Azure Blob Storage  and 
+locked down pipeline access with Azure AD RBAC  — deployment cycle time cut by 40%, release risk eliminated.  
+Environment: Angular 10 -14, TypeScript, C#.NET, ASP.NET Core, .NET Core, Web API, Entity Framework Core, OAuth2, 
+Microservices, SQL Server, MSSQL, Azure SQL Database, SSIS, Power BI, SQL Server Agent, HTML5, CSS3, Bootstrap, Git, 
+Jenkins, Azure DevOps, JIRA, Figma  
+Client: Citigroup  Feb 2022 – June 2024  
+Project: ASPEN Development Project  
+Role: Data Engineer / Software Developer  
+• Analyzed slow SQL queries via execution plan review and index gap analysis — composite indexes and stored 
+procedure refactoring delivered 30% faster response  and 60% reduction in DB latency . 
+• Designed T-SQL stored procedures , scalar functions, and DML triggers  for ASPEN's compliance audit trail — 
+every interaction captured and timestamped; audit retrieval time cut by 35%. 
+• Designed PySpark ETL pipelines  ingesting and transforming high -volume customer interaction datasets — 
+automated validation workflows improved performance review metric accuracy by 25%. 
+• Developed Python  scripts for automated data sampling, anomaly detection, and pre -load quality checks — caught 
+data integrity issues upstream before reaching the SQL Server  reporting layer.  
+
+• Built ASPEN's role -aware SPA using AngularJS , TypeScript , and ngrx  — permission -aware UI automatically 
+adjusted data visibility per role (analyst, team lead, compliance reviewer).  
+• Built Power BI  drill-through dashboards and DAX  KPI scorecards with compliance leads — gave leadership 
+genuine visibility into service quality and team efficiency trends.  
+• Configured automated Power BI  refresh via SQL Server Agent  — eliminated the daily manual export process that 
+consumed analyst time before every leadership meeting.  
+• Integrated PySpark  pipelines with SQL Server  for large -scale compliance data migration — handled datasets too 
+large for traditional SSIS alone.  
+• Built and maintained SSIS  ETL packages with Autosys  scheduling; migrated SQL Server workloads to managed 
+instances — zero data loss , high availability throughout cutover.  
+• Led ASPEN service containerization using Docker  — identical dev/staging/production environments eliminated 
+environment mismatch issues and improved team deployment confidence.  
+• Translated complex regulatory requirements from sprint discussions into precise data models — reduced 
+requirement -related defects surfacing in testing.  
+• Enforced structured Git branching and mandatory peer code reviews for all SQL and Angular changes — every 
+change traceable, peer -reviewed, and reversible without production risk.  
+• Migrated ASPEN’s compliance workloads to Azure SQL Managed Instance  (DP-300) geo -replication, PITR  
+retention, and Azure Monitor  query alerts configured zero data loss, full HA sustained throughout regulated -
+environment cutover.  
+• Replaced legacy SSIS handoffs with Azure Data Factory  pipelines (AZ -900) landed compliance datasets in Azure 
+Blob Storage  before PySpark transformation, with Azure AD RBAC  enforcing least -privilege access across all 
+pipeline resources.  
+Environment: Angular 12+, TypeScript, AngularJS, C#.NET, ASP.NET, MVC, Web API, Entity Framework, Microservices, SQL 
+Server, Azure SQL Managed Instance, Azure Data Factory, Azure Blob Storage, Azure Monitor, Python, PySpark, SSIS, 
+Autosys, Power BI, Git, Jenkins, Azure  DevOps, JIRA, xUnit, Docker  
+Client: Citi Group  Jan 2021 – Feb 2022  
+Project: MSOffice -NPOI Migration  
+Role: .NET / Database Developer  
+• Refactored T-SQL stored procedures  from cursor loops to set -based SQL operations — cut document generation 
+processing time by 35% with immediate user -visible impact.  
+• Built PySpark  batch workflows with partitioning, broadcast joins, and in -memory caching of reference lookup tables 
+— reduced batch metadata processing time by 30% across migration runs.  
+• Extended ASP.NET MVC  service layer with custom validation middleware and exception handling — replaced silent 
+failures with loggable errors, reducing unhandled processing failures by 40%. 
+• Led full MSOffice COM to NPOI  migration — re-engineered bookmark -driven Word template processing, making 
+the system deployable without requiring Office on the server.  
+• Applied table partitioning and covering indexes on document metadata tables — eliminated full table scans during 
+peak loads, keeping the system within processing windows as volumes grew.  
+• Engineered modular PL/SQL  packages in Oracle  for document migration and template generation — new 
+document types now extend an existing package rather than requiring logic rewritten from scratch.  
+• Built reusable C# .NET  class libraries for document generation and template binding — new document types added 
+by configuration across the NPOI codebase, not custom code.  
+• Wrote Python  scripts for post -ETL validation — compared source/target counts, checked field -level values, and 
+generated exception reports identifying exactly which records needed attention.  
+• Mapped all field binding rules and exception scenarios with document teams before coding — edge cases designed 
+for upfront, not discovered late in UAT.  
+• Applied DP-300 database administration practices during SQL Server migration — configured Azure SQL 
+Database failover groups , PITR backup retention, and Azure Monitor  alerts — document generation workloads 
+kept recoverable and highly available throughout the NPOI cutover.  
+Environment: AngularJS, C#.NET, VB.NET, ASP.NET MVC, ASP.NET Core, ADO.NET, Web API, SQL Server, Azure SQL 
+Database, Azure Monitor, PL/SQL, Oracle, Python, PySpark, NPOI, MSOffice Libraries, Git, TFS, NUnit, MSTest, JIRA  
+
+Client: Citi Group  Aug 2019 – Jan 2021  
+Project: Inventory Tracking Application  
+Role: .NET Developer  
+• Improved system performance by 25% restructured SQL Server Agent  batch jobs, applied partition -based 
+segmentation, and targeted T-SQL index tuning to eliminate nightly full table scans.  
+• Authored T-SQL stored procedures , scalar functions, and DML triggers  across task update and attestation 
+workflows — full timestamped audit trail captured via triggers and history tables.  
+• Built ASP.NET Web API  service endpoints for task lifecycle management and control attestation workflows — 
+structured C# business logic layer enforced validation rules and returned clean, typed responses to the AngularJS 
+front-end. 
+• Developed dynamic Angular  data-binding components and ngrx -driven state management for the risk registry 
+dashboard — real-time task status updates and role -filtered inventory views without full page reloads.  
+• Designed a role -aware SPA using AngularJS  and Bootstrap with ASP.NET  — unified interface for MIS teams, risk 
+registry owners, and attestation users, eliminating disconnected system switching.  
+• Enhanced SSIS  packages with row -level failure capture; automated period -end reporting via Autosys  and Excel 
+Power Query  — replaced error -prone manual processes with reliable, auditable workflows.  
+• Migrated SQL scripts from TFS to Git; contributed to Agile ceremonies in JIRA ; executed unit, integration, and 
+regression tests using MSTest  — consistent sprint velocity and clean releases. . 
+Environment: AngularJS, Angular, C#.NET, .NET Core, ASP.NET, ASP.NET Core, Web API, SQL Server, SSIS, Autosys, 
+Power Query, Excel, ngrx, TypeScript, MSTest, xUnit, Git, TFS, JIRA  
+Client: Humana  Apr 2019 – Aug 2019  
+Project: MedEvoSites  
+Role: .NET Developer  
+• Optimized SQL Server stored procedures  and T-SQL queries for patient record retrieval — applied index tuning 
+and query restructuring to improve dashboard load times under high -volume concurrent access.  
+• Designed ASP.NET Web API  endpoints consumed by SSIS  ETL jobs to pull validated clinical data from third -party 
+feeds — bridging .NET back -end services with the data pipeline layer for reliable medical record ingestion.  
+• Built C# .NET  service layer components for clinical data transformation and business rule enforcement — integrated 
+ASP.NET MVC  with Entity Framework  to ensure accurate, validated patient data flow.  
+• Developed SSIS  ETL jobs for medical record dashboards, optimized SQL Server  stored procedures and DML 
+triggers, and integrated Autosys  to schedule and monitor critical enterprise pipeline processes.  
+• Collaborated with clinical business analysts and compliance officers to gather, document, and validate functional 
+requirements — translated regulatory constraints into clearly scoped development tasks, reducing UAT rework.  
+• Collaborated across Agile sprints with clinical workflow analysts and QA using JIRA  and Git — delivered healthcare 
+features on schedule to the quality standards a compliance -sensitive environment demands.  
+Environment: AngularJS, ReactJS, TypeScript, C#, ASP.NET MVC, ASP.NET Core, Web API, Entity Framework, ADO.NET, 
+Node.js, MS SQL Server, SSIS, Autosys, Git, TFS, JIRA, xUnit, MS Office  
+Client: Lamda India  2014 – 2016  
+Project: Website and Product Information  
+Role: Web / UI Developer  
+• Wrote T-SQL stored procedures  and parameterized queries for product search, category filtering, and inventory 
+management — data integrity enforced via constraints and TRY...CATCH  error handling.  
+• Built responsive healthcare e -commerce pages using HTML5, CSS3, Bootstrap , and ReactJS  — reusable modular 
+components with dynamic Node.js  REST API -driven data modules keeping product info live.  
+• Managed SQL Server  structures and SSIS  ETL processes for the healthcare product catalog — maintained 
+schema documentation and collaborated in an Agile team using Git feature branch workflows.  
+• Worked directly with the client to gather product display , catalog requirements, incorporated feedback across 
+iterative release cycles,  delivered UI updates aligned with business priorities  - building strong client communication.  
+Environment: HTML5, CSS3, ReactJS, JavaScript, Bootstrap, AJAX, XML, JSON, Node.js, MS SQL Server, SSIS, Python, 
+Visual Studio, Git, TFS, JIRA  
+ 

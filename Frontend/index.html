@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Abhishek Desai — Portfolio</title>
+  <link rel="stylesheet" href="./css/hero.css">
+</head>
+<body ng-app="portfolioApp" ng-controller="HeroCtrl as hero">
+
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#top">AV<span class="nav-logo-dot">.</span></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a class="nav-link" href="#stats">Overview</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#projects">Projects</a></li>
+        <li><a class="nav-link" href="#expertise">Expertise</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Hire Me</a>
+    </div>
+  </nav>
+
+  <main class="hero" id="top">
+    <div class="hero-inner">
+      <div class="intro">
+        <p class="eyebrow">Available for Hire &middot; .NET &amp; SQL Developer</p>
+        <h1 class="name">{{ hero.content.Name || 'Abhishek V Desai' }}</h1>
+        <p class="title">{{ hero.content.Headline || '.NET & SQL Developer | 9+ Years' }}</p>
+
+        <div class="badges">
+          <span class="badge">Finance</span>
+          <span class="badge">Real Estate</span>
+          <span class="badge">Healthcare</span>
+        </div>
+
+        <div class="typing">
+          <span class="tagline">Building solutions in</span>
+          <span class="typed">{{ hero.typed }}</span><span class="cursor">|</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="#projects">View My Work</a>
+          <a class="btn" id="downloadResume" ng-href="{{ hero.content.ResumeUrl || './Abhishek_Desai_Resume.pdf' }}" download>Download Resume</a>
+        </div>
+
+        <div class="contacts">
+          <a class="contact-chip" ng-href="mailto:{{ hero.content.Email || 'avdesai900@gmail.com' }}">
+            <span class="chip-text">{{ hero.content.Email || 'avdesai900@gmail.com' }}</span>
+          </a>
+          <a class="contact-chip" ng-href="tel:{{ hero.content.Phone || '+1(540)-724-1408' }}">
+            <span class="chip-text">{{ hero.content.Phone || '+1(540)-724-1408' }}</span>
+          </a>
+          <a class="contact-chip" ng-href="{{ hero.content.LinkedInUrl || 'https://www.linkedin.com/in/abhishek-v-desai-273594311' }}" target="_blank" rel="noopener">
+            <span class="chip-text">LinkedIn</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="avatar">
+          <img src="Photo.jpg" alt="Abhishek V Desai" class="avatar-photo">
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <section id="stats" class="showcase-section">
+    <div class="showcase-inner">
+
+      <div class="showcase-nav">
+        <button class="sc-tab"
+                ng-repeat="tab in hero.showcaseTabs track by $index"
+                ng-class="{active: hero.showcaseIndex === $index}"
+                ng-click="hero.goToShowcase($index)">
+          <span class="sc-dot"></span>
+          <span>{{ tab }}</span>
+        </button>
+      </div>
+
+      <div class="showcase-progress">
+        <div class="showcase-progress-fill" ng-style="{width: hero.progressPct + '%'}"></div>
+      </div>
+
+      <div class="showcase-frame"
+           ng-mouseenter="hero.pauseShowcase()"
+           ng-mouseleave="hero.resumeShowcase()">
+
+        <!-- Slide 0: Professional Overview -->
+        <div class="sc-slide" ng-class="{active: hero.showcaseIndex === 0}">
+          <div class="sc-slide-header">
+            <span class="sc-slide-title">Professional Overview</span>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x1F4BB;</div><h3>Backend Architecture</h3></div>
+              <p>ASP.NET Core, MVC, Web API, Entity Framework, ADO.NET, Microservices, WCF/WPF. Production-grade C# and VB.NET codebases with clean architecture and solid design patterns.</p>
+            </div>
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x1F5C4;&#xFE0F;</div><h3>Database Expertise</h3></div>
+              <p>SQL Server (2000&ndash;2019) and Oracle (9i&ndash;11g). Schema design, T-SQL/PL/SQL development, SSIS/SSRS pipelines. SQL Profiler &amp; Query Store performance tuning delivering up to 60% query improvements.</p>
+            </div>
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x26A1;</div><h3>Frontend &amp; SPA</h3></div>
+              <p>High-performance SPAs using Angular (8&ndash;14) and ReactJS with TypeScript and ngrx. Micro Frontend architecture enables independent team deployment and 25% delivery effort savings.</p>
+            </div>
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x1F4CA;</div><h3>Data Engineering</h3></div>
+              <p>PySpark ETL pipelines on millions of records. Azure Data Factory orchestration. Automated validation workflows improving compliance accuracy by 25%. Power BI dashboards with custom DAX measures.</p>
+            </div>
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x2601;&#xFE0F;</div><h3>Cloud &amp; DevOps</h3></div>
+              <p>Azure-certified (DP-300, AZ-900). SQL Server to Azure SQL Managed Instance migrations with zero data loss. Docker containerization, Jenkins CI/CD, Azure DevOps Pipelines, Git workflows.</p>
+            </div>
+            <div class="summary-card">
+              <div class="sc-card-head"><div class="summary-icon">&#x1F3AF;</div><h3>Key Specialties</h3></div>
+              <p>Stakeholder collaboration, Agile/Scrum delivery, requirements analysis. Proven track record translating complex business needs into scalable, production-grade solutions across regulated environments.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 1: Skills & Proficiency -->
+        <div class="sc-slide" ng-class="{active: hero.showcaseIndex === 1}">
+          <div class="sc-slide-header">
+            <span class="sc-slide-title">Skills &amp; Proficiency</span>
+          </div>
+          <div class="skill-chips-grid">
+            <div class="skill-category-card"
+                 ng-repeat="category in hero.skillsByCategory track by $index"
+                 ng-class="{'chart-open': hero.hoveredIndex === $index}"
+                 ng-mouseenter="hero.hoverSkill($index)"
+                 ng-mouseleave="hero.leaveSkill()">
+              <div class="skill-category-header">
+                <span class="skill-category-name">{{ category.Name }}</span>
+              </div>
+              <div class="skill-chips">
+                <span class="skill-chip" ng-repeat="skill in category.Skills">{{ skill.Name }}</span>
+              </div>
+              <div class="skill-chart-inline">
+                <canvas id="sc-chart-{{ $index }}" width="130" height="130"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Key Results (vertical timeline) -->
+        <div class="sc-slide" ng-class="{active: hero.showcaseIndex === 2}">
+          <div class="sc-slide-header">
+            <span class="sc-slide-title">Key Results</span>
+            <span class="sc-slide-meta">Production Metrics</span>
+          </div>
+          <div class="sc-timeline-2col">
+            <div class="sc-tl-col">
+              <div class="sc-tl-item" ng-repeat="stat in hero.stats | limitTo:3">
+                <div class="sc-tl-left">
+                  <div class="sc-tl-dot"></div>
+                  <div class="sc-tl-line" ng-if="!$last"></div>
+                </div>
+                <div class="sc-tl-right">
+                  <div class="sc-tl-value">{{ stat.MetricValue }}</div>
+                  <div class="sc-tl-label">{{ stat.MetricLabel }}</div>
+                  <div class="sc-tl-source">{{ stat.CompanySource }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="sc-tl-col">
+              <div class="sc-tl-item" ng-repeat="stat in hero.stats | limitTo:-3">
+                <div class="sc-tl-left">
+                  <div class="sc-tl-dot"></div>
+                  <div class="sc-tl-line" ng-if="!$last"></div>
+                </div>
+                <div class="sc-tl-right">
+                  <div class="sc-tl-value">{{ stat.MetricValue }}</div>
+                  <div class="sc-tl-label">{{ stat.MetricLabel }}</div>
+                  <div class="sc-tl-source">{{ stat.CompanySource }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Certifications & Education -->
+        <div class="sc-slide" ng-class="{active: hero.showcaseIndex === 3}">
+          <div class="sc-slide-header">
+            <span class="sc-slide-title">Certifications &amp; Education</span>
+          </div>
+          <div class="sc-cred-grid">
+            <div class="sc-cred-col">
+              <div class="sc-cred-subtitle">Certifications</div>
+              <div class="sc-cert-card" ng-repeat="cert in hero.certifications">
+                <div class="sc-cert-name">{{ cert.Name }}</div>
+                <div class="sc-cert-issuer">{{ cert.Issuer }}</div>
+                <a ng-if="cert.VerifyUrl" ng-href="{{ cert.VerifyUrl }}"
+                   target="_blank" rel="noopener" class="sc-cert-link">Verify &#8599;</a>
+              </div>
+            </div>
+            <div class="sc-cred-col">
+              <div class="sc-cred-subtitle">Education</div>
+              <div class="sc-edu-card" ng-repeat="edu in hero.education">
+                <div class="sc-edu-degree">{{ edu.Degree }}</div>
+                <div class="sc-edu-inst">{{ edu.Institution }}</div>
+                <div class="sc-edu-year" ng-if="edu.GradYear">{{ edu.GradYear }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Technology Stack & Azure -->
+        <div class="sc-slide" ng-class="{active: hero.showcaseIndex === 4}">
+          <div class="sc-slide-header">
+            <span class="sc-slide-title">Technology Stack &amp; Azure</span>
+          </div>
+          <div class="sc-tech-body">
+            <div class="sc-azure-row" ng-if="hero.azureCerts.length">
+              <span class="sc-azure-badge" ng-repeat="cert in hero.azureCerts">{{ cert.Name }}</span>
+            </div>
+            <div class="sc-tech-cats">
+              <div class="sc-tech-cat" ng-repeat="(cat, items) in hero.technologiesByCategory">
+                <div class="sc-tech-cat-label">{{ cat }}</div>
+                <div class="sc-tech-chips">
+                  <span class="sc-chip" ng-repeat="t in items | limitTo:5">{{ t.DisplayName || t.Name }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="timeline-section" ng-if="hero.experience.length">
+    <div class="timeline-inner">
+      <h2>Work History</h2>
+      <div class="timeline">
+        <div class="timeline-item" ng-repeat="job in hero.experience">
+          <div class="timeline-marker"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <div class="job-title-line">
+                <span class="company">{{ job.Company }}</span>
+                <span class="job-sep" ng-if="job.Role"> * </span>
+                <span class="role">{{ job.Role }}</span>
+                <span class="job-sep" ng-if="job.Project"> * </span>
+                <span class="project-name" ng-if="job.Project">{{ job.Project }}</span>
+              </div>
+              <span class="dates">{{ job.StartDate | date:'MMM yyyy' }} — {{ job.EndDate ? (job.EndDate | date:'MMM yyyy') : 'Present' }}</span>
+            </div>
+            <div class="tech-tags">
+              <span class="tech-tag" ng-repeat="tag in (job.Environment ? job.Environment.split(',') : [])">{{ tag.trim() }}</span>
+            </div>
+            <div class="achievements">
+              <span class="achievement" ng-repeat="achievement in job.Achievements">{{ achievement }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section" ng-if="hero.filteredProjects.length">
+    <div class="projects-inner">
+      <h2>Projects</h2>
+      <p class="section-copy">Featured outcomes across Finance, Real Estate, and Healthcare. Use the filters to focus on the industry story.</p>
+      <div class="project-filters">
+        <button class="filter-btn" ng-class="{active: hero.projectFilter === 'All'}" ng-click="hero.filterProjects('All')">All</button>
+        <button class="filter-btn" ng-class="{active: hero.projectFilter === 'Finance'}" ng-click="hero.filterProjects('Finance')">Finance</button>
+        <button class="filter-btn" ng-class="{active: hero.projectFilter === 'Real Estate'}" ng-click="hero.filterProjects('Real Estate')">Real Estate</button>
+        <button class="filter-btn" ng-class="{active: hero.projectFilter === 'Healthcare'}" ng-click="hero.filterProjects('Healthcare')">Healthcare</button>
+      </div>
+      <div class="project-grid">
+        <div class="project-card" ng-repeat="project in hero.filteredProjects">
+          <div class="project-card-header">
+            <div>
+              <span class="project-title">{{ project.Title }}</span>
+              <span class="project-company">{{ project.Company }}</span>
+            </div>
+            <span class="project-industry">{{ project.Industry }}</span>
+          </div>
+          <p class="project-description">{{ project.Description }}</p>
+          <div class="project-badges">
+            <span class="project-badge" ng-repeat="tag in (project.Tags ? project.Tags.split(',') : [])">{{ tag.trim() }}</span>
+          </div>
+          <div class="project-metric">Result: {{ project.MetricHighlight }}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="expertise" class="expertise-section" ng-if="hero.domainExpertise.length">
+    <div class="expertise-inner">
+      <h2>Domain Expertise</h2>
+      <p class="section-copy">Nine years of specialized experience across three key industries, with measurable impact and proven technical depth.</p>
+      <div class="expertise-grid">
+        <div class="expertise-card" ng-repeat="domain in hero.domainExpertise">
+          <div class="expertise-header">
+            <div class="expertise-icon"><i class="fa {{ domain.Icon }}"></i></div>
+            <div class="expertise-headline">{{ domain.Name }}</div>
+          </div>
+          <div class="expertise-tagline">{{ domain.Headline }}</div>
+          <ul class="expertise-bullets">
+            <li ng-repeat="bullet in domain.Bullets">{{ bullet }}</li>
+          </ul>
+          <div class="expertise-tech">
+            <span class="expertise-chip" ng-repeat="chip in domain.TechChips">{{ chip }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="testimonials" class="testimonials-section" ng-if="hero.testimonials.length">
+    <div class="testimonials-inner">
+      <h2>What People Say</h2>
+      <p class="section-copy">LinkedIn recommendations from managers and colleagues who've worked with me.</p>
+      <div class="testimonials-carousel">
+        <div class="testimonial-card" ng-repeat="testimonial in hero.testimonials" ng-class="{active: $index === hero.currentTestimonialIndex}">
+          <div class="quote-mark">"</div>
+          <p class="quote">{{ testimonial.Quote }}</p>
+          <div class="testimonial-author">
+            <div class="author-name">{{ testimonial.AuthorName }}</div>
+            <div class="author-role">{{ testimonial.AuthorTitle }} at {{ testimonial.Company }}</div>
+          </div>
+          <div class="rating">
+            <span class="star" ng-repeat="star in [1,2,3,4,5]" ng-class="{filled: star <= testimonial.Rating}">★</span>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-dot" ng-repeat="testimonial in hero.testimonials" ng-click="hero.goToTestimonial($index)" ng-class="{active: $index === hero.currentTestimonialIndex}"></button>
+      </div>
+      <div class="leave-recommendation">
+        <a class="recommendation-link" ng-href="https://www.linkedin.com/in/abhishek-v-desai-273594311" target="_blank" rel="noopener">
+          Leave a LinkedIn recommendation →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="contact-inner">
+      <h2>Get In Touch</h2>
+      <p class="section-copy">Open to full-time roles, contract engagements, consulting, and networking. I'll get back to you within 24 hours.</p>
+
+      <div class="contact-layout">
+        <div class="contact-sidebar">
+          <div class="contact-info-card">
+            <div class="contact-info-label">Email</div>
+            <div class="contact-info-value"><a ng-href="mailto:{{ hero.content.Email }}">{{ hero.content.Email }}</a></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-label">Phone</div>
+            <div class="contact-info-value"><a ng-href="tel:{{ hero.content.Phone }}">{{ hero.content.Phone }}</a></div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-info-label">LinkedIn</div>
+            <div class="contact-info-value"><a ng-href="{{ hero.content.LinkedInUrl }}" target="_blank" rel="noopener">abhishek-v-desai</a></div>
+          </div>
+          <div class="contact-info-card contact-open-card">
+            <div class="contact-info-label">Currently Open To</div>
+            <div class="contact-open-types">
+              <span class="open-type" ng-repeat="type in hero.leadTypes">{{ type.label }}</span>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" ng-submit="hero.submitContact()" novalidate>
+          <!-- Honeypot: hidden from humans, bots fill it -->
+          <input type="text" name="website" ng-model="hero.contactForm.website"
+                 style="position:absolute;left:-9999px;opacity:0;pointer-events:none;height:0"
+                 tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-name">Full Name <span class="required">*</span></label>
+              <input id="cf-name" type="text" ng-model="hero.contactForm.name"
+                     placeholder="Your name" maxlength="200">
+            </div>
+            <div class="form-group">
+              <label for="cf-email">Email <span class="required">*</span></label>
+              <input id="cf-email" type="email" ng-model="hero.contactForm.email"
+                     placeholder="you@company.com" maxlength="200">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="cf-company">Company</label>
+              <input id="cf-company" type="text" ng-model="hero.contactForm.company"
+                     placeholder="Acme Corp" maxlength="200">
+            </div>
+            <div class="form-group">
+              <label for="cf-phone">Phone <span class="optional">(optional)</span></label>
+              <input id="cf-phone" type="tel" ng-model="hero.contactForm.phone"
+                     ng-change="hero.onPhoneChange()"
+                     placeholder="+1 (555) 000-0000" maxlength="50">
+              <div class="phone-hint success" ng-if="hero.phoneHint">&#10003; {{ hero.phoneHint }}</div>
+              <div class="phone-hint error"   ng-if="hero.phoneErr">{{ hero.phoneErr }}</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>I'm reaching out about <span class="required">*</span></label>
+            <div class="lead-type-options">
+              <label class="lead-type-option" ng-repeat="type in hero.leadTypes">
+                <input type="radio" ng-model="hero.contactForm.leadType" ng-value="type.value">
+                <span class="lead-type-label">{{ type.label }}</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cf-message">Message <span class="required">*</span></label>
+            <textarea id="cf-message" ng-model="hero.contactForm.message"
+                      placeholder="Tell me about the opportunity or what's on your mind..."
+                      rows="5" maxlength="1000"></textarea>
+            <div class="char-count">{{ (hero.contactForm.message || '').length }}/1000</div>
+          </div>
+
+          <div class="form-message error" ng-if="hero.contactStatus === 'error'">{{ hero.contactError }}</div>
+          <div class="form-message success" ng-if="hero.contactStatus === 'success'">{{ hero.contactSuccess }}</div>
+
+          <button type="submit" class="btn primary submit-btn" ng-disabled="hero.contactSubmitting">
+            <span ng-if="!hero.contactSubmitting">Send Message</span>
+            <span ng-if="hero.contactSubmitting">Sending...</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">AV</div>
+          <div>
+            <div class="footer-name">Abhishek V Desai</div>
+            <div class="footer-tagline">.NET &amp; SQL Developer &middot; 9+ Years</div>
+          </div>
+        </div>
+        <nav class="footer-nav">
+          <a href="#top">Home</a>
+          <a href="#stats">Overview</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-contact">
+          <a href="mailto:avdesai900@gmail.com">avdesai900@gmail.com</a>
+          <a href="tel:+15407241408">+1 (540) 724-1408</a>
+          <a href="https://www.linkedin.com/in/abhishek-v-desai-273594311" target="_blank" rel="noopener">LinkedIn Profile</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Abhishek V Desai &mdash; Open to Full-Time, Contract &amp; Consulting roles. Built with ASP.NET Core &amp; AngularJS.</span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" title="Back to top">&#8679;</button>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="./js/hero.js"></script>
+  <script>(function(){var p=document.querySelector('.avatar-photo');if(p)p.src='Photo.jpg?v='+Date.now();}());</script>
+</body>
+</html>

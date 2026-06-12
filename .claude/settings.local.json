@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($r = Invoke-WebRequest -Uri \"http://localhost:5164/api/portfolio/admin/leads\" -Headers @{\"X-Admin-Password\"=\"portfolio2024\"} -UseBasicParsing; \\($r.Content | ConvertFrom-Json\\).Count)"
+    ]
+  }
+}

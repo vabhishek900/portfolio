@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Portfolio Admin — Leads</title>
+  <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+
+  <!-- ── Login Screen ────────────────────────────────────────── -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-card">
+      <div class="login-logo">AV</div>
+      <h1>Admin Access</h1>
+      <p>Portfolio Contact Leads Dashboard</p>
+      <div class="login-error" id="login-error" style="display:none"></div>
+      <form id="login-form">
+        <input type="password" id="admin-password" placeholder="Enter admin password"
+               autocomplete="current-password" required>
+        <button type="submit" id="login-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ── Admin Dashboard ─────────────────────────────────────── -->
+  <div id="admin-screen" class="admin-screen" style="display:none">
+
+    <header class="admin-header">
+      <div class="admin-header-inner">
+        <div class="admin-brand">
+          <div class="admin-logo">AV</div>
+          <div>
+            <div class="admin-title">Portfolio Admin</div>
+            <div class="admin-subtitle">Contact Leads</div>
+          </div>
+        </div>
+        <div class="admin-stats" id="admin-stats">
+          <div class="stat-pill loading-pill">Loading...</div>
+        </div>
+        <a class="back-link" href="./index.html">← Portfolio</a>
+        <button class="logout-btn" id="logout-btn">Logout</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <div class="admin-main-inner">
+
+        <div class="leads-toolbar">
+          <div class="filter-tabs" id="filter-tabs">
+            <button class="filter-tab active" data-filter="All">All</button>
+            <button class="filter-tab" data-filter="Full-Time Role">Full-Time Role</button>
+            <button class="filter-tab" data-filter="Contract">Contract</button>
+            <button class="filter-tab" data-filter="Consulting">Consulting</button>
+            <button class="filter-tab" data-filter="Just Networking">Just Networking</button>
+          </div>
+          <label class="unread-toggle">
+            <input type="checkbox" id="unread-toggle">
+            <span>Unread only</span>
+          </label>
+        </div>
+
+        <div id="leads-loading" class="leads-state-msg">Loading leads...</div>
+        <div id="leads-empty"   class="leads-state-msg" style="display:none">No leads found for this filter.</div>
+        <div id="leads-error"   class="leads-state-msg error" style="display:none">Failed to load leads. Check API connection.</div>
+        <div id="leads-grid"    class="leads-grid"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="./js/admin.js"></script>
+</body>
+</html>

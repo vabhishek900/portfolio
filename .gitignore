@@ -1,0 +1,25 @@
+# Build outputs
+api/bin/
+api/obj/
+
+# Secrets — never commit these
+appsettings.Development.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+*.user
+*.suo
+.vs/
+
+# Python
+tools/__pycache__/
+tools/*.pyc
+*.pyc
+
+# Logs
+*.log
