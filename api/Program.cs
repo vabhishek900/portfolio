@@ -52,7 +52,7 @@ app.Use(async (context, next) =>
 });
 
 // ── Serve Frontend static files ───────────────────────────────
-var frontendPath = Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, "..", "Frontend"));
+var frontendPath = Path.Combine(builder.Environment.ContentRootPath, "Frontend");
 if (Directory.Exists(frontendPath))
 {
     app.UseDefaultFiles(new DefaultFilesOptions
@@ -66,6 +66,8 @@ if (Directory.Exists(frontendPath))
         RequestPath  = ""
     });
 }
+
+app.MapFallbackToFile("index.html");
 
 // ── Config ────────────────────────────────────────────────────
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
