@@ -67,7 +67,11 @@ if (Directory.Exists(frontendPath))
     });
 }
 
-app.MapFallbackToFile("index.html");
+app.MapFallback(async context =>
+{
+    context.Response.ContentType = "text/html";
+    await context.Response.SendFileAsync(Path.Combine(builder.Environment.ContentRootPath, "index.html"));
+});
 
 // ── Config ────────────────────────────────────────────────────
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")!;
