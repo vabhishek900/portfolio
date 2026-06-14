@@ -52,7 +52,7 @@ app.Use(async (context, next) =>
 });
 
 // ── Serve Frontend static files ───────────────────────────────
-var frontendPath = Path.Combine(builder.Environment.ContentRootPath, "Frontend");
+var frontendPath = builder.Environment.ContentRootPath;
 if (Directory.Exists(frontendPath))
 {
     app.UseDefaultFiles(new DefaultFilesOptions
